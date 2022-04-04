@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open API Exercise</title>
+    <meta http-equiv="Contetn-Type" content="text/html"; charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="css/style.css" rel="stylesheet"/>
+    <style>
+        .search-box {
+            text-align: center;
+            margin: auto;
+            width: 60vw;
+            height: 10vh;
+        }
+
+        #bookName {
+            width: 20vw;
+            border-radius: 1em;
+            border: 1px solid black;
+            margin: 1vw 0;
+            padding: 1vw;
+        }
+
+        #search {
+            border-radius: 1em;
+            border: 1px solid black;
+            margin: 1vw 0;
+            padding: 1vw;
+        }
+
+        #thumbnail {
+            float: right;
+            width: 30vw;
+            height: 35vh;
+        }
+
+        img {
+            float: right;
+            width: 20vw;
+            height: 35vh;
+            cursor: pointer;
+        }
+
+        span {
+            float: left;
+            width: 30vw;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="header">
+        <a href="/">
+            <h1>OPEN API Exercise</h1>
+        </a>
+    </div>
+    <div class="content">
+        <div class="search-box">
+            <input id="bookName" value="" style="width: 20vw;" type="text" placeholder="책 이름" onKeypress='javascript:if(event.keyCode==13) { $("#search").click()}'>
+            <button id="search" style="width: 5vw; font-size: 0.25vw;">Search</button>
+        </div>
+        <div id="thumbnail"></div>
+        <span id="title"></span>
+        <span id="contents"></span>
+        <span id="price"></span>
+        <span id="status"></span>
+        <span id="link"></span>
+
+    </div>
+    <!--책 정보 출력 화면-->
+    <div class="footer">
+        <strong>Explain</strong>
+        <li>Kakao Open API 중 책 검색 기능을 활용, 다음 책 서비스에서 질의어로 도서 정보를 검색.</li>
+        <li>Kakao Open API 중 카카오톡 공유하기 기능을 활용.</li>
+        <li>Youtube 강의영상을 통해 Jqeury CDN 기능과 .ajax() 학습 후 활용.</li>
+        <li>검색 창을 통해 책 이름을 Query로 도서 정보를 Request.</li>
+        <li>.append() 사용 시 검색 결과가 쌓이게 되어서 .html()을 사용.</li>
+        <li>try-catch문을 사용하여 유효하는 결과값이 없을 경우, 알림창 출력, 새로고침.</li>
+        <li>Json객체를 String으로 바꾸어 function의 매개변수로 넣고 공유되는 feed의 내용 수정. </li>
+    </div>
+    <!--간단한 설명-->
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+</script>
+<!--CDN 추가-->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!--카카오 SDK 추가-->
+<script>
+        $(document).ready(function () {
+            $("#search").click(function () {
+                $.ajax({
+                    method: "GET",
+                    url: "https://dapi.kakao.com/v3/search/book?target=title",
+                    data: { query: $("#bookName").val() },
+                    headers: { Authorization: "KakaoAK ${3705e65d3da8505380bbd2d83e4a085f}" }
+                })
+                    .done(function (msg) {
+                        try {
+                            //console.log(msg);
+                            //console.log(msg.documents[0].title);
+                            console.log(msg.documents[0].thumbnail);title='눌러서 카카오톡 공유하기'
+                            var Image = JSON.stringify(msg.documents[0].thumbnail);
+                            var Title = JSON.stringify(msg.documents[0].title);
+                            var Des = JSON.stringify(msg.documents[0].contents);
+                            var Url = JSON.stringify(msg.documents[0].url);
+                            var Des = Des.replace(/'/gi, " ");
+                            console.log(Image);
+                            console.log(Title);
+                            console.log(Des);
+                            console.log(Url);
+                            $("#title").html("<strong>Title: " + msg.documents[0].title + "</strong>");
+                            $("#contents").html("<strong>Contents: " + msg.documents[0].contents + "</strong>");
+                            $("#price").html("<strong>Price: " + msg.documents[0].price + "</strong>");
+                            $("#link").html("<a href='" + msg.documents[0].url + "' target='_blank'>" + "<strong>자세히 보기(Click)</strong>" + "</a>");
+                            $("#status").html("<strong>Status: " + msg.documents[0].status + "</strong>");
+                            $("#thumbnail").html("<img src='" + msg.documents[0].thumbnail + "' onClick='js:kakaoShare(" + Image + "," + Title + "," + Des + "," + Url + ")'/>");
+
+                        } catch (err) {
+                            alert("일치하는 결과가 없습니다.");
+                            location.reload();
+                        }
+                    });
+            });
+        });
+    </script>
+</body>
+<script src="js/share.js"></script>
+</html>

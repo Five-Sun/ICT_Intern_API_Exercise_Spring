@@ -4,6 +4,7 @@
 <br>개발 언어: HTML, CSS, Javascript, Spring </br>
 <br>이전에 만들었던 ICT_Intern_API_Exercise_Node.js를 백엔드 프레임워크를 Spring을 활용하여 리팩토링 해본 프로젝트</br>
 <br>내용은 이전 프로젝트와 동일하다</br>
+<br>
 <strong>Explain1</strong>
     <li>Kakao Open API 중 책 검색 기능을 활용, 다음 책 서비스에서 질의어로 도서 정보를 검색.</li>
     <li>Kakao Open API 중 카카오톡 공유하기 기능을 활용.</li>

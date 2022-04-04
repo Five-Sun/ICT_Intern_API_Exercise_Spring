@@ -2,7 +2,7 @@
 
 <strong>원트리즈뮤직에서 Open API 활용한 예제 만들어보기 ver.2 </strong>
 <li>개발 언어: HTML, CSS, Javascript, Spring </li>
-<li>이전에 만들었던 ICT_Intern_API_Exercise_Node.js를 백엔드 프레임워크를 Spring을 활용하여 리팩토링 해본 프로젝트</li>
+<li>이전의 ICT_Intern_API_Exercise_Node.js를 백엔드 프레임워크를 Spring을 활용하여 리팩토링 해본 프로젝트</li>
 <li>내용은 이전 프로젝트와 동일하다</li>
 <br>
 <strong>Explain1</strong>

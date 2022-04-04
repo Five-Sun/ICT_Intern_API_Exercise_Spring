@@ -1,5 +1,5 @@
 function getYoutube(title, artist) {
-    var API_KEY = "";
+    var API_KEY = "AIzaSyDQSVysWES54RDYnjZtfbmftS1K6WlBpVQ";
     var search = title + artist;
     var maxResults = 1
 

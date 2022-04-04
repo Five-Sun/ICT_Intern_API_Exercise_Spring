@@ -1,4 +1,4 @@
-Kakao.init('3705e65d3da8505380bbd2d83e4a085f');
+Kakao.init('46fb8967b79616210acc50d982ee0ba8');
 console.log(Kakao.isInitialized());
 
 //카카오 API 설정

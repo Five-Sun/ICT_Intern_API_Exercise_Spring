@@ -58,8 +58,10 @@
     </div>
     <div class="content">
         <div class="search-box">
-            <input id="bookName" value="" style="width: 20vw;" type="text" placeholder="책 이름" onKeypress='javascript:if(event.keyCode==13) { $("#search").click()}'>
-            <button id="search" style="width: 5vw; font-size: 0.25vw;">Search</button>
+            <form action="/kakao" method="post">
+            <input id="bookName" name="title" style="width: 20vw;" type="text" placeholder="책 이름" onKeypress='javascript:if(event.keyCode==13) { $("#search").click()}'>
+            <button type="submit" id="search" style="width: 5vw; font-size: 0.25vw;">Search</button>
+            </form>
         </div>
         <div id="thumbnail"></div>
         <span id="title"></span>

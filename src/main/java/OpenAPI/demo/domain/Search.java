@@ -11,14 +11,7 @@ public class Search {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    private int count = 1;
 
     public int getId() {
         return id;
@@ -26,5 +19,22 @@ public class Search {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

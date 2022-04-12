@@ -20,6 +20,7 @@ public class JPASearchRepository implements SearchRepository{
         return search;
     }
 
+
     @Override
     public Optional<Search> findByTitle(String title) {
         List<Search> result = em.createQuery("select s from Search s where s.title = :title", Search.class)

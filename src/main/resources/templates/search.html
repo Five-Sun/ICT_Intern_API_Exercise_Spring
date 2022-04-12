@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Open API Exercise</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="css/style.css" rel="stylesheet"/>
+    <style>
+        img {
+            width: 25vw;
+            height: 20vh;
+        }
+        h4 {
+            font-size: 0.9vw;
+        }
+        p {
+            font-size: 0.7vw;
+        }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="header">
+        <a href="/">
+            <h1>OPEN API Exercise</h1>
+        </a>
+    </div>
+    <div class="content">
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+            </tr>
+            <th:block th:each="search : ${searches}">
+                <tr>
+                    <td th:text="${ search.id }"></td>
+                    <td th:text="${ search.title }"></td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+    <div class="footer">
+        <strong>참고자료</strong>
+        <a href="https://five-sun.tistory.com/53" target="_blank">
+            <li>[ICT 학점연계 프로젝트] API란? API에 대해 이해하기</li>
+        </a>
+        <a href="https://five-sun.tistory.com/55" target="_blank">
+            <li>[ICT 학점연계 프로젝트] Open API 활용한 웹</li>
+        </a>
+        <a href="https://www.youtube.com/watch?v=QPEUU89AOg8" target="_blank">
+            <li>API의 개념과 활용(JavaScript 기초와 활용)</li>
+        </a>
+        <a href="https://developers.kakao.com/" target="_blank">
+            <li>Kakao Developer</li>
+        </a>
+        <a href="https://www.data.go.kr/index.do" target="_blank">
+            <li>공공 데이터 포털</li>
+        </a>
+        <a href="https://www.youtube.com/watch?v=EAyo3_zJj5c" target="_blank">
+            <li>Youtube Data API V3 example</li>
+        </a>
+    </div>
+    <!--참고 자료-->
+</div>
+</body>
+
+</html>

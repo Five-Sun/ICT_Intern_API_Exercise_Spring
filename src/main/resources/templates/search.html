@@ -16,6 +16,12 @@
         p {
             font-size: 0.7vw;
         }
+        .table {
+            width: 60vw;
+            height: 40vh;
+            text-align: center;
+            font-size: 0.8vw;
+        }
     </style>
 </head>
 <body>
@@ -26,11 +32,13 @@
         </a>
     </div>
     <div class="content">
-        <table border="1">
-            <tr>
-                <th>id</th>
-                <th>title</th>
-            </tr>
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                </tr>
+            </thead>
             <th:block th:each="search : ${searches}">
                 <tr>
                     <td th:text="${ search.id }"></td>

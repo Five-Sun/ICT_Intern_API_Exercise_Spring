@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface SearchRepository {
     Search save(Search search);
-    Optional<Search> findById(int id);
     Optional<Search> findByTitle(String title);
     List<Search> findAll();
 }

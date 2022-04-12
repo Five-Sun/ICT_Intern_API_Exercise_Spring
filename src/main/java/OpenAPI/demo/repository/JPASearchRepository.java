@@ -21,12 +21,6 @@ public class JPASearchRepository implements SearchRepository{
     }
 
     @Override
-    public Optional<Search> findById(int id) {
-        Search search = em.find(Search.class, id);
-        return Optional.ofNullable(search);
-    }
-
-    @Override
     public Optional<Search> findByTitle(String title) {
         List<Search> result = em.createQuery("select s from Search s where s.title = :title", Search.class)
                 .setParameter("title", title)

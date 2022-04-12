@@ -1,14 +1,10 @@
 package OpenAPI.demo.service;
 
 import OpenAPI.demo.domain.Search;
-import OpenAPI.demo.repository.MemorySearchRepository;
 import OpenAPI.demo.repository.SearchRepository;
-import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Transactional
 public class SearchService {

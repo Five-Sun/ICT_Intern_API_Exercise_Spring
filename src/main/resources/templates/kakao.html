@@ -58,10 +58,11 @@
     </div>
     <div class="content">
         <div class="search-box">
-            <form action="/kakao" method="post">
+            <form action="/kakao" method="post" target="param">
             <input id="bookName" name="title" style="width: 20vw;" type="text" placeholder="책 이름" onKeypress='javascript:if(event.keyCode==13) { $("#search").click()}'>
-            <button type="submit" id="search" style="width: 5vw; font-size: 0.25vw;">Search</button>
+            <button type="subit" id="search" style="width: 5vw; font-size: 0.25vw;">Search</button>
             </form>
+            <iframe name="param" style="display:none;"></iframe>
         </div>
         <div id="thumbnail"></div>
         <span id="title"></span>

@@ -26,7 +26,7 @@ public class SearchController {
         search.setTitle(form.getTitle());
         System.out.println(("search =" + search.getTitle()));
         searchService.join(search);
-        return "redirect:/kakao";
+        return "search";
     }
 
     @GetMapping("/search")

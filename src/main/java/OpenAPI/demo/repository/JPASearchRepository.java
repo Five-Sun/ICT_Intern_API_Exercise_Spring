@@ -3,6 +3,8 @@ package OpenAPI.demo.repository;
 import OpenAPI.demo.domain.Search;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +21,6 @@ public class JPASearchRepository implements SearchRepository{
         em.persist(search);
         return search;
     }
-
 
     @Override
     public Optional<Search> findByTitle(String title) {

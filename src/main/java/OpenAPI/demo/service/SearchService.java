@@ -3,6 +3,7 @@ package OpenAPI.demo.service;
 import OpenAPI.demo.domain.Search;
 import OpenAPI.demo.repository.SearchRepository;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -15,7 +16,13 @@ public class SearchService {
     }
 
     public void join(Search search) {
-        validateDuplicateSearch(search);//중복 내용 검증
+        try {
+            validateDuplicateSearch(search);//중복 내용 검증
+        }
+        catch (IllegalStateException e) {
+
+        }
+
         searchRepository.save(search);
     }
 

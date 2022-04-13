@@ -1,6 +1,8 @@
 package OpenAPI.demo.repository;
 
 import OpenAPI.demo.domain.Search;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -8,9 +10,11 @@ import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
-public class JPASearchRepository implements SearchRepository{
+public class JPASearchRepository implements SearchRepository {
 
     private final EntityManager em;
+
+    private static final Logger logger = LoggerFactory.getLogger(JPASearchRepository.class);
 
     public JPASearchRepository(EntityManager em) {
         this.em = em;
@@ -24,9 +28,13 @@ public class JPASearchRepository implements SearchRepository{
 
     @Override
     public Search update(Search search) {
-        Search update = em.find(Search.class,search.getTitle());
-        update.setCount(search.getCount()+1);
-        return update;
+//        Search update = em.find(Search.class, search.getTitle());
+//        update.setCount(search.getCount() + 1);
+        em.createQuery("update Search s set s.count = (s.count + 1) where s.title = :title")
+//                .setParameter("count", search.getCount() + 1)
+                .setParameter("title", search.getTitle())
+                .executeUpdate();
+        return null;
     }
 
     @Override

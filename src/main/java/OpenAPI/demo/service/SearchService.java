@@ -18,18 +18,20 @@ public class SearchService {
     public void join(Search search) {
         try {
             validateDuplicateSearch(search);//중복 내용 검증
+            searchRepository.save(search);
         }
         catch (IllegalStateException e) {
-
+            searchRepository.update(search);
         }
 
-        searchRepository.save(search);
+
     }
 
     private void validateDuplicateSearch(Search search) {
         searchRepository.findByTitle(search.getTitle())
                         .ifPresent(m -> {
                             throw new IllegalStateException("이미 존재하는 기록입니다.");
+
                         });
     }
 

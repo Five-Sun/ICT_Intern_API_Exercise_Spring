@@ -24,7 +24,7 @@ public class SearchController {
     public String create(Form form) {
         Search search = new Search();
         search.setTitle(form.getTitle());
-        System.out.println(("search =" + search.getTitle()));
+        System.out.println(("search = " + search.getTitle()));
         searchService.join(search);
         return "search";
     }

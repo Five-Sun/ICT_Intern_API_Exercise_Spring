@@ -23,6 +23,13 @@ public class JPASearchRepository implements SearchRepository{
     }
 
     @Override
+    public Search update(Search search) {
+        Search update = em.find(Search.class,search.getTitle());
+        update.setCount(search.getCount()+1);
+        return update;
+    }
+
+    @Override
     public Optional<Search> findByTitle(String title) {
         List<Search> result = em.createQuery("select s from Search s where s.title = :title", Search.class)
                 .setParameter("title", title)
@@ -37,4 +44,5 @@ public class JPASearchRepository implements SearchRepository{
                 .getResultList();
         return result;
     }
+
 }

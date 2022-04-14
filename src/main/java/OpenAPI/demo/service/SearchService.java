@@ -2,8 +2,9 @@ package OpenAPI.demo.service;
 
 import OpenAPI.demo.domain.Search;
 import OpenAPI.demo.repository.SearchRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 

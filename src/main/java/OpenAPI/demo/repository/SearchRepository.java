@@ -10,6 +10,5 @@ public interface SearchRepository {
     Search save(Search search);
     Optional<Search> findByTitle(String title);
     List<Search> findAll();
-
     Search update(Search search);
 }

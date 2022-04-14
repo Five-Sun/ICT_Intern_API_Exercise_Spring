@@ -30,8 +30,8 @@ public class JPASearchRepository implements SearchRepository {
     public Search update(Search search) {
 //        Search update = em.find(Search.class, search.getTitle());
 //        update.setCount(search.getCount() + 1);
-        em.createQuery("update Search s set s.count = (s.count + 1) where s.title = :title")
-//                .setParameter("count", search.getCount() + 1)
+        em.createQuery("update Search s set s.count = (s.count +1) where s.title = :title")
+                .setParameter("count", search.getCount() + 1)
                 .setParameter("title", search.getTitle())
                 .executeUpdate();
         return null;

@@ -23,7 +23,15 @@
     <li>처음 페이지와 마지막 페이지는 경고문 출력.</li>
     <li>Search를 통해 page 검색, 범위 초과시 경고문 출력 후 새로고침.</li>
 <br>
-    <strong>참고자료</strong>
+<strong>Explain3</strong>
+    <li>Spring Boot와 MySQL 연동</li>
+    <li>Kakao 책 검색에 사용된 검색어 DB에 저장하기</li>
+    <li>저장된 검색 기록 id, title, count 화면에 출력하기</li>
+    <li>중복된 검색어가 저장되려고 하는지 try-catch문으로 확인하기</li>
+    <li>중복을 확인하는 메소드에서 중복일 경우 Exception 발생하고 Update메소드 실행</li>
+    <li>중복이 아닐 경우, Save메소드 실행</li>
+<br>
+<strong>참고자료</strong>
     <a href="https://www.youtube.com/watch?v=Jg3FFBLyhK0" target="_blank">
         <li>API란 무엇인가?</li>
     </a>

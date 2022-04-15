@@ -52,5 +52,4 @@ public class JPASearchRepository implements SearchRepository {
                 .getResultList();
         return result;
     }
-
 }

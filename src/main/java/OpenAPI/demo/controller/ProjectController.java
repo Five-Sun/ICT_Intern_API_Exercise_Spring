@@ -20,8 +20,6 @@ public class ProjectController {
         return "kakao";
     }
 
-
-
     @GetMapping("/data")
     public String data() {
         return "data";

@@ -14,8 +14,6 @@ public class JPASearchRepository implements SearchRepository {
 
     private final EntityManager em;
 
-    private static final Logger logger = LoggerFactory.getLogger(JPASearchRepository.class);
-
     public JPASearchRepository(EntityManager em) {
         this.em = em;
     }
@@ -28,10 +26,7 @@ public class JPASearchRepository implements SearchRepository {
 
     @Override
     public Search update(Search search) {
-//        Search update = em.find(Search.class, search.getTitle());
-//        update.setCount(search.getCount() + 1);
         em.createQuery("update Search s set s.count = (s.count +1) where s.title = :title")
-                .setParameter("count", search.getCount() + 1)
                 .setParameter("title", search.getTitle())
                 .executeUpdate();
         return null;
@@ -42,7 +37,6 @@ public class JPASearchRepository implements SearchRepository {
         List<Search> result = em.createQuery("select s from Search s where s.title = :title", Search.class)
                 .setParameter("title", title)
                 .getResultList();
-
         return result.stream().findAny();
     }
 

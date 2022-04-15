@@ -24,8 +24,6 @@ public class SearchService {
         catch (IllegalStateException e) {
             searchRepository.update(search);
         }
-
-
     }
 
     private void validateDuplicateSearch(Search search) {

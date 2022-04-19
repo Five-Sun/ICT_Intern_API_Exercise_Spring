@@ -1,12 +1,8 @@
 package OpenAPI.demo.repository;
 
 import OpenAPI.demo.domain.Search;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +26,12 @@ public class JPASearchRepository implements SearchRepository {
                 .setParameter("title", search.getTitle())
                 .executeUpdate();
         return null;
+    }
+
+    @Override
+    public Optional<Search> findById(Long id) {
+        Search search = em.find(Search.class, id);
+        return Optional.ofNullable(search);
     }
 
     @Override

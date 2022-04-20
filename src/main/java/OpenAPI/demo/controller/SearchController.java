@@ -37,11 +37,6 @@ public class SearchController {
         return "search";
     }
 
-//    @GetMapping("/search")
-//    public String list(Model model ) {
-//        model.addAttribute("searches", searchService.findSearch());
-//        return "search";
-//    }
 
     @GetMapping("/search")
     public String list(Model model,@RequestParam(required = false,defaultValue = "0", value = "page") int page ) {

@@ -78,9 +78,9 @@
             </tbody>
         </table>
         <div class="paging">
-            <a href="/search?page=8"> <button id='decrease'>이전</button></a>
+             <button id='decrease' onclick="decrease()">이전</button>
             <span id='result'></span>
-            <button id='increase'>다음</button>
+            <button id='increase' onclick="increase()">다음</button>
         </div> <!--Page 화면-->
         <div class="pagination">
             <ul>
@@ -99,4 +99,30 @@
     <!--참고 자료-->
 </div>
 </body>
+<script>
+    const urlStr = window.location.href;
+    const url = new URL(urlStr);
+    const urlParams = url.searchParams;
+    const num = urlParams.get('page')
+    document.getElementById("result").innerHTML = parseInt(num)/10+1 + "쪽";
+
+    console.log(num);
+
+    function increase(){
+        const URLSearch = new URLSearchParams(location.search);
+        URLSearch.set('page',parseInt(num)+ 10);
+        const newParam = URLSearch.toString();
+
+        location.href="search?"+newParam;
+    }
+    function decrease(){
+        const URLSearch = new URLSearchParams(location.search);
+        URLSearch.set('page',parseInt(num)- 10);
+        const newParam = URLSearch.toString();
+
+        location.href="search?"+newParam;
+    }
+
+
+</script>
 </html>

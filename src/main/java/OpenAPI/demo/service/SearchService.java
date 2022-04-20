@@ -25,7 +25,7 @@ public class SearchService {
             searchRepository.save(search);
         }
         catch (IllegalStateException e) {
-//            searchRepository.update(search);
+            searchRepository.update(search);
         }
     }
 

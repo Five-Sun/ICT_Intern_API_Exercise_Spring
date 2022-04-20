@@ -37,7 +37,7 @@ public class SearchService {
                         });
     }
 
-    public List<Search> findSearch( ) {
-        return searchRepository.findAll();
+    public List <Search> findSearch(int page ) {
+        return searchRepository.findAll(page);
     }
 }

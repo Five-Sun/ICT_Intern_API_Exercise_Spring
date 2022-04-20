@@ -13,5 +13,5 @@ public interface SearchRepository {
     Search update(Search search);
     Optional<Search> findById(Long id);
     Optional<Search> findByTitle(String title);
-    List<Search> findAll();
+    List<Search> findAll(int page);
 }

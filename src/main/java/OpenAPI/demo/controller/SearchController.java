@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -36,10 +37,16 @@ public class SearchController {
         return "search";
     }
 
+//    @GetMapping("/search")
+//    public String list(Model model ) {
+//        model.addAttribute("searches", searchService.findSearch());
+//        return "search";
+//    }
+
     @GetMapping("/search")
-    public String list(Model model ) {
-        model.addAttribute("searches", searchService.findSearch());
+    public String list(Model model,@RequestParam(required = false,defaultValue = "0", value = "page") int page ) {
+        model.addAttribute("searches", searchService.findSearch(page));
+        System.out.println(page);
         return "search";
     }
-
 }

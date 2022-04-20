@@ -21,6 +21,7 @@ public class SearchController {
 
     private final SearchService searchService;
 
+
     @Autowired
     public SearchController(SearchService searchService) {
         this.searchService = searchService;
@@ -36,9 +37,9 @@ public class SearchController {
     }
 
     @GetMapping("/search")
-    public String list(Model model) {
-        List<Search> searches = searchService.findSearch();
-        model.addAttribute("searches", searches);
+    public String list(Model model ) {
+        model.addAttribute("searches", searchService.findSearch());
         return "search";
     }
+
 }

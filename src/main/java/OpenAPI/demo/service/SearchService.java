@@ -3,7 +3,10 @@ package OpenAPI.demo.service;
 import OpenAPI.demo.domain.Search;
 import OpenAPI.demo.repository.SearchRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -22,7 +25,7 @@ public class SearchService {
             searchRepository.save(search);
         }
         catch (IllegalStateException e) {
-            searchRepository.update(search);
+//            searchRepository.update(search);
         }
     }
 
@@ -34,7 +37,7 @@ public class SearchService {
                         });
     }
 
-    public List<Search> findSearch() {
+    public List<Search> findSearch( ) {
         return searchRepository.findAll();
     }
 }

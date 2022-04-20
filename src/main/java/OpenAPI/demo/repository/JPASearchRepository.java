@@ -42,10 +42,21 @@ public class JPASearchRepository implements SearchRepository {
         return result.stream().findAny();
     }
 
+
+//    @Override
+//    public List<Search> findAll() {
+//         return em.createQuery("select s from Search s order by s.id desc", Search.class)
+//                 .setFirstResult(11)
+//                 .setMaxResults(10)
+//                 .getResultList();
+//
+//    }
     @Override
     public List<Search> findAll() {
-        List<Search> result = em.createQuery("select s from Search s", Search.class)
+        return em.createQuery("select s from Search s order by s.id desc", Search.class)
+                .setFirstResult(11)
+                .setMaxResults(10)
                 .getResultList();
-        return result;
+
     }
 }
